@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- android:scaleType centerInside的目标是将原图完整的显示出来，
+    故按比例缩放原图，使得ImageView可以将原图完整显示 -->
+    <ImageView
+        android:id="@+id/cover"
+        tools:src="@drawable/mis_btn_back"
+        android:src="@drawable/mis_default_error"
+        android:scaleType="centerInside"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
+        android:layout_width="@dimen/mis_folder_cover_size"
+        android:layout_height="@dimen/mis_folder_cover_size" />
+
+    <LinearLayout
+        android:layout_toEndOf="@+id/cover"
+        android:layout_toStartOf="@+id/indicator"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- tools:text="img" 起的是占位符的作用 -->
+        <TextView
+            android:id="@+id/name"
+            tools:text="img"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/path"
+            tools:text="/sdcard/a/"
+            android:textSize="12sp"
+            android:textColor="#AFAFAF"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/size"
+            android:ellipsize="end"
+            tools:text="1张"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:textColor="#AFAFAF"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mis_default_check"/>
+
+</RelativeLayout>

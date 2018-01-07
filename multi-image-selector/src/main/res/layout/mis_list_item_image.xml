@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.multi_image_selector.view.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- android:scaleType="fitCenter" 将图片按比例缩放，然后居中（按照父ImageView控件）显示 -->
+    <!-- 找出的图片信息 -->
+    <com.example.multi_image_selector.view.SquaredImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/mis_default_error"/>
+
+    <!-- 覆盖在图片上的遮罩，对于选中的图片来说，自动添加一个遮罩表示选中 -->
+    <View
+        android:id="@+id/mask"
+        android:visibility="gone"
+        android:background="#88000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 是否选择图片的复选框 -->
+    <ImageView
+        android:id="@+id/checkmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="5.5dp"
+        android:layout_marginEnd="5.5dp"
+        android:src="@drawable/mis_btn_unselected"/>
+
+</com.example.multi_image_selector.view.SquareFrameLayout>
