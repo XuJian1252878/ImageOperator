@@ -1,4 +1,4 @@
-package com.example.imageoperator;
+package com.example.imageoperator.multiimageselector;
 
 import android.Manifest;
 import android.app.Activity;
@@ -18,11 +18,12 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.imageoperator.R;
 import com.example.multi_image_selector.MultiImageSelector;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MultiImageSelectorActivity extends AppCompatActivity {
 
 
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.multi_image_selector_activity);
 
         mResultText = findViewById(R.id.result);
         mChoiceMode = findViewById(R.id.choice_mode);
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton(R.string.mis_permission_dialog_ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
+                            ActivityCompat.requestPermissions(MultiImageSelectorActivity.this, new String[]{permission}, requestCode);
                         }
                     })
                     .setNegativeButton(R.string.mis_permission_dialog_cancel, null)
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // 构建初始化参数
-            MultiImageSelector selector = MultiImageSelector.create(MainActivity.this);
+            MultiImageSelector selector = MultiImageSelector.create(MultiImageSelectorActivity.this);
             selector.showCamera(isShowCamera);
             selector.count(maxNum);
             if (mChoiceMode.getCheckedRadioButtonId() == R.id.single) {
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             selector.origin(mSelectPath);
-            selector.start(MainActivity.this, REQUEST_IMAGE);
+            selector.start(MultiImageSelectorActivity.this, REQUEST_IMAGE);
         }
     }
 

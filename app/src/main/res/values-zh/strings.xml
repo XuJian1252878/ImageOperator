@@ -13,4 +13,14 @@
     <string name="disable">否</string>
     <string name="go_select">图片选择</string>
 
+
+    <string name="pick_photo">选择图片</string>
+    <string name="pick_photo_without_camera">选择图片（不带拍照按钮且点击不预览图片）</string>
+    <string name="pick_one_photo">选择单张图片</string>
+    <string name="pick_photo_gif">选择gif图片</string>
+    <string name="multiple_pick_photo">多次进入PhotoPicker选择图片</string>
+
+    <string name="pick_photo_add_item_label">+</string>
+    <string name="pick_crashlytics_btn_label">测试 Crashlytics</string>
+
 </resources>

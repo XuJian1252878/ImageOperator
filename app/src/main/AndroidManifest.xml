@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".photopicker.PhotoPickerMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Crashlytics 的api key，与自己的注册账户相关 -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="4a7604bbb82d38859b4118dec1be899cd5992569"
+            />
     </application>
 
+    <!-- 引入 Crashlytics 需要网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
