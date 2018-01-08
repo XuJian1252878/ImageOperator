@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">photopicker</string>
+
+    <string name="pick_error_no_permission">No Permission</string>
+    <string name="pick_permission_dialog_title">Permission Deny</string>
+    <string name="pick_permission_dialog_ok">OK</string>
+    <string name="pick_permission_dialog_cancel">CANCEL</string>
+    <string name="pick_permission_rationale">Storage read permission is needed to pick files.</string>
+    <string name="pick_permission_rationale_write_storage">Storage write permission is needed to save the image.</string>
+
 </resources>
