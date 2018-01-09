@@ -12,6 +12,7 @@ import android.view.View;
 import com.crashlytics.android.Crashlytics;
 import com.example.imageoperator.R;
 import com.example.photopicker.PhotoPicker;
+import com.example.photopicker.PhotoPreview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,10 @@ public class PhotoPickerMainActivity extends AppCompatActivity {
                             .start(PhotoPickerMainActivity.this);
                 } else {
                     // 图片预览的操作
+                    PhotoPreview.builder()
+                            .setCurrentItem(position)
+                            .setPhotos(selectedPhotos)
+                            .start(PhotoPickerMainActivity.this);
                 }
             }
         }));

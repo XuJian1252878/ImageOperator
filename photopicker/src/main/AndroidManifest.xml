@@ -3,7 +3,8 @@
     package="com.example.photopicker">
 
     <application>
-        <activity android:name=".PhotoPickerActivity"></activity>
+        <activity android:name=".PhotoPickerActivity" />
+        <activity android:name=".PhotoPagerActivity"></activity>
     </application>
 
 </manifest>
