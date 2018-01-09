@@ -17,6 +17,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.example.photopicker.PhotoPickerActivity"
+            android:theme="@style/NoActionBarCustomTheme">
+        </activity>
+
         <!-- Crashlytics 的api key，与自己的注册账户相关 -->
         <meta-data
             android:name="io.fabric.ApiKey"

@@ -8,4 +8,6 @@
     <string name="pick_permission_rationale">Storage read permission is needed to pick files.</string>
     <string name="pick_permission_rationale_write_storage">Storage write permission is needed to save the image.</string>
 
+    <string name="pick_folder_all">All Images</string>
+
 </resources>

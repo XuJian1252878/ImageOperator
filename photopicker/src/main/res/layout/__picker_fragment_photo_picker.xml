@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_photos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/category_footer"
+        android:layout_alignParentBottom="true"
+        android:background="#cc000000"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <Button
+            android:id="@+id/category_btn"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_alignParentStart="true"
+            android:text="@string/pick_folder_all"
+            android:textSize="16sp"
+            android:textColor="@color/__picker_folder_text_color"
+            android:drawableEnd="@drawable/__picker_text_indicator"
+            android:drawablePadding="5dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</RelativeLayout>
