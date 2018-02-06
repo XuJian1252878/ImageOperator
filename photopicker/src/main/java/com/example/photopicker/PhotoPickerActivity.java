@@ -55,7 +55,7 @@ public class PhotoPickerActivity extends AppCompatActivity {
 
 
         // 启动PhotoPickerFragment
-//        pickerFragment = (PhotoPickerFragment) getSupportFragmentManager().findFragmentByTag(PHOTO_PICKER_FRAGMENT_TAG);
+        pickerFragment = (PhotoPickerFragment) getSupportFragmentManager().findFragmentByTag(PHOTO_PICKER_FRAGMENT_TAG);
         if (pickerFragment == null) {
             pickerFragment = PhotoPickerFragment.newInstance(showCamera, showGif, previewEnabled, columnNumber, maxCount, originalPhotos);
             getSupportFragmentManager()

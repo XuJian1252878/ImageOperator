@@ -48,6 +48,13 @@ public class PhotoPickerFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /**
+         * Fragment具有属性retainInstance，默认值为false。当设备旋转时，fragment会随托管activity一起销毁并重建。
+         */
+        setRetainInstance(true);
+
+
     }
 
     @Nullable
