@@ -25,7 +25,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:layout_alignParentStart="true"
-            android:text="@string/pick_folder_all"
+            android:text="@string/__picker_all_image"
             android:textSize="16sp"
             android:textColor="@color/__picker_folder_text_color"
             android:drawableEnd="@drawable/__picker_text_indicator"
