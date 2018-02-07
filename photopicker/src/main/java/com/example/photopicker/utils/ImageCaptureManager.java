@@ -64,9 +64,10 @@ public class ImageCaptureManager {
             File file = createImageFile();
             Uri photoFile;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                // provider 后缀随意是什么都可以，不一定是provider
                 String authority = mContext.getApplicationInfo().packageName + ".provider";
                 // returns a content:// URI
-                photoFile = FileProvider.getUriForFile(mContext.getApplicationContext(), authority, file);
+                photoFile = PhotoFileProvider.getUriForFile(mContext.getApplicationContext(), authority, file);
             } else {
                 // returns file:// URI
                 photoFile = Uri.fromFile(file);

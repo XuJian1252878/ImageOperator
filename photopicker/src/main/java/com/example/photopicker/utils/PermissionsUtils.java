@@ -83,9 +83,11 @@ public class PermissionsUtils {
                             .setNegativeButton(R.string.pick_permission_dialog_cancel, null)
                             .create()
                             .show();
+                } else {
+                    permissionsToRequest.add(permission);
                 }
             }
-            resultPermissions = permissionsToRequest.toArray(new String[0]);
+            resultPermissions = permissionsToRequest.toArray(new String[permissionsToRequest.size()]);
         } else {
             resultPermissions = permissions;
         }
