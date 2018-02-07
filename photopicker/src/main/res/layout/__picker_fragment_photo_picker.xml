@@ -6,8 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <!-- http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0317/2613.html
+    关于控件设置了padding属性之后，滚动 重绘区域的问题-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_photos"
+        android:paddingBottom="?android:attr/actionBarSize"
+        android:clipToPadding="false"
+        android:clipChildren="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
