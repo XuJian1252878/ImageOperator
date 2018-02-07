@@ -44,6 +44,7 @@ public class PopupDirectoryListAdapter extends BaseAdapter {
         return this.directories.get(position).hashCode();
     }
 
+    // 自定义的getView ViewHolder操作中，getView放回的是已经填装好数据的ViewHolder，所以getView中的ViewHolder要做好填装数据的工作
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -54,6 +55,10 @@ public class PopupDirectoryListAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+
+        // 获取holder最重要的一步就是bindData
+        holder.bindData(directories.get(position));
+
         return convertView;
     }
 

@@ -29,11 +29,12 @@ public class PhotoDirectoryLoader extends CursorLoader {
 
         setProjection(IMAGE_PROJECTION); // 设置要选出哪些数据条目
         setUri(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        setSortOrder(MediaStore.Images.Media.DATE_ADDED + "DESC");
+        setSortOrder(MediaStore.Images.Media.DATE_ADDED + " DESC");
 
         setSelection(MediaStore.Images.Media.MIME_TYPE + " = ? or " +
-                MediaStore.Images.Media.MIME_TYPE  + " = ?" +
-                (showGif ? (" or " + MediaStore.Images.Media.MIME_TYPE + " = ?") : ""));
+                MediaStore.Images.Media.MIME_TYPE  + " = ? or " +
+                MediaStore.Images.Media.MIME_TYPE  + " = ? " +
+                (showGif ? (" or " + MediaStore.Images.Media.MIME_TYPE + " = ? ") : ""));
 
         String[] selectionArgs;
         if (showGif) {

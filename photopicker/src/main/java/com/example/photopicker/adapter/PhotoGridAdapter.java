@@ -82,7 +82,7 @@ public class PhotoGridAdapter extends SelectableAdapter<PhotoGridAdapter.PhotoVi
             holder.ivPhoto.setScaleType(ImageView.ScaleType.CENTER);
             holder.ivPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v) { // 如果在 onBindViewHolder 中绑定，那么还需要调用 getViewType，这里调用就直接不需要绑定
                     if (onCameraClickListener != null) {
                         // 将定义照相机的操作交给外部调用者
                         onCameraClickListener.onClick(v);
