@@ -6,7 +6,6 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
@@ -154,7 +153,7 @@ public class PhotoGridAdapter extends SelectableAdapter<PhotoGridAdapter.PhotoVi
 
                     if (onItemCheckListener != null) {
                         isEnable = onItemCheckListener.onItemCheck(pos, photo,
-                                getSelectedPhotos().size() + (isSelected(photo) ? 1 : -1));
+                                getSelectedPhotos().size() + (isSelected(photo) ? -1 : 1));
                     }
 
                     if (isEnable) {

@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.photopicker.entity.Photo;
+import com.example.photopicker.event.OnItemCheckListener;
 import com.example.photopicker.fragment.ImagePagerFragment;
 import com.example.photopicker.fragment.PhotoPickerFragment;
 
@@ -65,7 +68,7 @@ public class PhotoPickerActivity extends AppCompatActivity {
         boolean showCamera = getIntent().getBooleanExtra(EXTRA_SHOW_CAMERA, true);  // 取不到值的话指定一个默认值
         boolean showGif = getIntent().getBooleanExtra(EXTRA_SHOW_GIF, true);
         boolean previewEnabled = getIntent().getBooleanExtra(EXTRA_PREVIEW_ENABLED, true);
-        int maxCount = getIntent().getIntExtra(EXTRA_MAX_COUNT, DEFAULT_MAX_COUNT);
+        maxCount = getIntent().getIntExtra(EXTRA_MAX_COUNT, DEFAULT_MAX_COUNT);
         int columnNumber = getIntent().getIntExtra(EXTRA_GRID_COLUMN, DEFAULT_COLUMN_NUMBER);
         ArrayList<String> originalPhotos = getIntent().getStringArrayListExtra(EXTRA_ORIGINAL_PHOTOS);
 
@@ -82,6 +85,35 @@ public class PhotoPickerActivity extends AppCompatActivity {
             // 马上执行fragment的commit操作，以便在接下来的代码中马上使用 pickerFragment
             getSupportFragmentManager().executePendingTransactions();
         }
+
+        pickerFragment.getPhotoGridAdapter().setOnItemCheckListener(new OnItemCheckListener() {
+            @Override
+            public boolean onItemCheck(int position, Photo photo, int selectedItemCount) {
+                // 这里进行点击复选框之后的刷新操作
+                menuDoneItem.setEnabled(selectedItemCount > 0);
+
+                if (maxCount <= 1) {
+                    List<String> photos = pickerFragment.getPhotoGridAdapter().getSelectedPhotos();
+                    if (!photos.contains(photo.getPath())) {
+                        photos.clear();
+                        pickerFragment.getPhotoGridAdapter().notifyDataSetChanged();
+                    }
+                    return true;
+                }
+
+                if (selectedItemCount > maxCount) {
+                    Toast.makeText(getActivity(), getString(R.string.__picker_over_max_count_tips), Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+                if (maxCount > 1) {
+                    menuDoneItem.setTitle(getString(R.string.__picker_done_with_count, selectedItemCount, maxCount));
+                } else {
+                    menuDoneItem.setTitle(getString(R.string.__picker_done));
+                }
+                return true;
+            }
+        });
     }
 
     // 刷新右上角的显示文字
@@ -118,12 +150,9 @@ public class PhotoPickerActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                super.onBackPressed();
-                return true;
-            default:
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            super.onBackPressed();
+            return true;
         }
 
         if (item.getItemId() == R.id.done) {
@@ -176,5 +205,14 @@ public class PhotoPickerActivity extends AppCompatActivity {
                 .replace(R.id.container, this.imagePagerFragment)
                 .addToBackStack(null)  // 　保证photopicker这个fragment在preciew之后会显示出来
                 .commit();
+    }
+
+    // 在Activity的内部类中 能够取到Activity的对象
+    public PhotoPickerActivity getActivity() {
+        return this;
+    }
+
+    public void setShowGif(boolean showGif) {
+        this.showGif = showGif;
     }
 }
