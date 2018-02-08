@@ -113,6 +113,7 @@ public class ImagePagerFragment extends Fragment {
     }
 
     // 返回一个list，其中只有一个元素，即为当前选择的图片路径
+    // 因为不论是选一张还是选择多张，都会以一个路径list的方式提供给调用者
     public ArrayList<String> getCurrentPath() {
         ArrayList<String> list = new ArrayList<>();
         int position = mViewPager.getCurrentItem();
