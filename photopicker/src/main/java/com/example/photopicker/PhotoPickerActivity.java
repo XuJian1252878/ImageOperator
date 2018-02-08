@@ -130,7 +130,7 @@ public class PhotoPickerActivity extends AppCompatActivity {
                     menuDoneItem.setTitle(getString(R.string.__picker_done));
                 }
             } else if (imagePagerFragment != null && imagePagerFragment.isResumed()) {
-                // 预览洁面的图片总是可点的，没选就默认选当前的图片
+                // 预览界面的图片总是可点的，没选就默认选当前的图片
                 menuDoneItem.setEnabled(true);
             }
         }
@@ -140,8 +140,9 @@ public class PhotoPickerActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (imagePagerFragment != null && imagePagerFragment.isVisible()) {
             // ﻿这样子点击一下back键，那么就会回到上一个Fragment，如果没有这个方法的话，就不会回到上一个Fragment（如果是主Activity的话，那么程序会直接退出。）
-            if (getFragmentManager().getBackStackEntryCount() > 0) {
-                getFragmentManager().popBackStack();
+            // getFragmentManager 会不起作用
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                getSupportFragmentManager().popBackStack();
             }
         } else {
             super.onBackPressed();
@@ -163,10 +164,10 @@ public class PhotoPickerActivity extends AppCompatActivity {
             }
             // 如果在列表中没有选择图片，但是又在详情页面， 那么默认选择当前图片
             if (selectedPhotos.size() <= 0) {
-//                if(imagePagerFragment != null && imagePagerFragment.isResumed()){
-//                    // 预览界面
-//                    selectedPhotos = imagePagerFragment.getCurrentPath();
-//                }
+                if(imagePagerFragment != null && imagePagerFragment.isResumed()){
+                    // 预览界面
+                    selectedPhotos = imagePagerFragment.getCurrentPath();
+                }
             }
 
             if (selectedPhotos != null && selectedPhotos.size() > 0) {
