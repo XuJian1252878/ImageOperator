@@ -112,7 +112,8 @@ public class PhotoPickerMainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == Activity.RESULT_OK || requestCode == PhotoPicker.REQUEST_CODE) {
+        if (resultCode == Activity.RESULT_OK &&
+                (requestCode == PhotoPicker.REQUEST_CODE || requestCode == PhotoPreview.REQUEST_CODE)) {
             List<String> photos = null;
 
             if (data != null) {
